@@ -7,22 +7,22 @@ public class Program
     static void Main()
     {
         MaxHeap<int> maxHeap = new MaxHeap<int>();
-        
-        maxHeap.Add(72);
-        maxHeap.Add(28);
-        maxHeap.Add(39);
-        maxHeap.Add(91);
-        maxHeap.Add(7);
-        maxHeap.Add(56);
-        maxHeap.Add(1);
 
-        foreach (var element in maxHeap.RandomGetAllElements())
-        {
-            WriteLine(element);
-        }
+        MaxHeapDouble<int> maxHeapDouble = new MaxHeapDouble<int>();
 
-        WriteLine($"Размер кучи : {maxHeap.Size()}");
-        
+
+        maxHeapDouble.GenerateAndAddRandomElements(100);
+
+        maxHeap.GenerateAndAddRandomElementsForArray(100);
+
+        WriteLine($"Вывод элементов в произвольном порядке из кучи на double linked list: {maxHeapDouble.RandomGetAllElements()}");
+        WriteLine();
+        WriteLine("--------------------------------------------");
+        WriteLine();
+        WriteLine($"Вывод элементов в произвольном порядке из кучи на массиве: {maxHeap.RandomGetAllElements()}");
+
+        WriteLine($" Размер кучи : {maxHeap.Size()}");
+
         WriteLine($"Максимальный элемент кучи (корень) = {maxHeap.Peek()}");
     }
 }
